@@ -1,0 +1,30 @@
+.questionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px;
+  width: 350px;
+  border: white 1px solid;
+  margin: auto;
+  background-color: #4C326E;
+  font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  border-radius: 2px;
+}
+
+.groupedSpan {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600px;
+}
+
+.questionContainer h3, p {
+  text-align: center;
+}
+
+@media (max-width: 390px) {
+  .questionContainer {
+    width: 80vw;
+    padding: 20px;
+  }
+}

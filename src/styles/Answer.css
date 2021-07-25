@@ -1,0 +1,27 @@
+.answerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.answerButton {
+    width: 325px;
+    height: 50px;
+    margin: 5px auto;
+    background-color: #8D6EF9;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.answerButton:hover {
+    border-color: black;
+    transition: border-color 0.5s linear;
+}
+
+@media (max-width: 390px) {
+    .answerButton {
+      width: 250px;
+    }
+  }
