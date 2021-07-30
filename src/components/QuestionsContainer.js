@@ -26,6 +26,7 @@ export default function QuestionsContainer(props) {
     }
 
     return (
+
         <div className="questionContainer">
             <div className="groupedSpan">
                 <span>{props.questionNumber + 1}/10</span>
