@@ -1,8 +1,9 @@
 import '../App.css';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
 import QuestionsContainer from '../components/QuestionsContainer';
 import Questions from '../service/Questions';
 import { useDispatch, useStore } from '../store/StoreProvider';
+import { authContext } from '../auth/authProvider';
 export default function GamePage(){
 
 
@@ -12,7 +13,7 @@ export default function GamePage(){
   const [questionNumber, setQuestionNumber] = useState(0);
   const [status, setStatus] = useState("Loading");
   const dispatch = useDispatch();
-  const store = useStore();
+  const auth = useContext(authContext)
 
   useEffect(() => {
           Questions().then((questions) => {
@@ -71,7 +72,7 @@ export default function GamePage(){
       }
       {status === "Ready" &&
       <div>
-          <h1 style={{textAlign : "center"}}>{store.playerName}</h1>
+          <h1 style={{textAlign : "center"}}>{auth.user}</h1>
           <QuestionsContainer
             question={questions[questionNumber]}
             questionNumber={questionNumber}

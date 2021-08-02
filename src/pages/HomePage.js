@@ -1,18 +1,18 @@
 import "../styles/HomePage.css"
-import { useDispatch } from "../store/StoreProvider"
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import {authContext} from "../auth/authProvider";
 
 export default function HomePage(){
 
-const dispatch = useDispatch();
-const history = useHistory();
+    const auth = useContext(authContext);
+    const history = useHistory();
 
-let handleNameChange = (e) => {
-    e.preventDefault()
-    console.log(e.target.children[0].value)
-    dispatch({type : "CHANGE_USER_NAME", payload : {playerName : e.target.children[0].value}})
-    return history.push("/play")
-}
+    let handleNameChange = (e) => {
+        e.preventDefault()
+        auth.login(e.target.children[0].value)
+        return history.push("/play")
+    }
 
     return(
         <div>

@@ -1,13 +1,15 @@
-import { Fragment } from "react";
-import { useStore } from "../store/StoreProvider"
+import { Fragment, useContext } from "react";
+import { authContext } from "../auth/authProvider";
+import { useStore } from "../store/StoreProvider";
 import "../styles/Record.css"
 
 export default function RecordPage(){
+    const auth = useContext(authContext)
     const store = useStore();
     return(
     <Fragment>
         
-        <h1 style={{textAlign : "center"}}>{store.playerName}</h1>
+        <h1 style={{textAlign : "center"}}>{auth.user}</h1>
 
         <table>
             <thead>
