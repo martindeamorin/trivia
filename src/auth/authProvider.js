@@ -1,9 +1,11 @@
 import { createContext, useState } from 'react';
+import { useDispatch } from '../store/StoreProvider';
 
 export const authContext = createContext();
 
 export default function AuthProvider({children}){
     const [user, setUser] = useState(undefined);
+    const dispatch = useDispatch();
 
     const contextValue = {
         user,
@@ -11,6 +13,7 @@ export default function AuthProvider({children}){
             setUser(username)
         },
         logout : () => {
+            dispatch({type: "DELETE_GAME_SCORE"})
             setUser(undefined)
         },
         isLogged : () => {

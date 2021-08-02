@@ -5,11 +5,11 @@ import StoreProvider from "./store/StoreProvider"
 export default function App(){
   document.title = "Trivia-App"
   return(
-    <AuthProvider>
-      <StoreProvider>
-        <AppRouter/>
-      </StoreProvider>
-    </AuthProvider>
+    <StoreProvider>
+      <AuthProvider>
+          <AppRouter/>
+      </AuthProvider>
+    </StoreProvider>
       
   )
 }
